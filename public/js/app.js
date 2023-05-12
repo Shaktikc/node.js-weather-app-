@@ -26,7 +26,8 @@ weatherForm.addEventListener("submit", (e) => {
           messageOne.textContent = data.error;
           console.log("error", data.error);
         } else {
-          messageOne.textContent = data.error;
+          messageOne.textContent = data.address;
+          messageTwo.textContent = `${data.foreCastData} and humidity is ${data.humidity}`;
           console.log("location", data.address);
           console.log("foreCastData", data.foreCastData);
         }

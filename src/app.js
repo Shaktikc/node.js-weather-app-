@@ -53,14 +53,15 @@ app.get("/weather", (req, res) => {
       res.send({ error });
     }
 
-    foreCast(longitude, latitude, (error, foreCastData) => {
+    foreCast(longitude, latitude, (error, foreCastData, otherData) => {
       if (error) {
         res.send(error);
         console.log("error1", error);
       }
-      res.send({ foreCastData, address });
+      res.send({ foreCastData, address, humidity: otherData.humidity });
       // console.log("data2", data.results);
-      console.log(foreCastData);
+      console.log("response22", otherData.humidity);
+      // console.log(foreCastData);
     });
   });
 });

@@ -9,11 +9,12 @@ const foreCast = (longitude, Latitude, callback) => {
       callback(error, undefined);
       console.log("Unable to connect to weather service");
     } else {
+      const otherData = body?.list[0]?.main;
       const main = body?.list[0]?.main?.temp;
       const feelsLike = body?.list[0]?.main?.feels_like;
       const data = `It is currently ${main} degress.But it feels like ${feelsLike} degress out there`;
-      callback(undefined, data);
-      // console.log("response", data);
+      callback(undefined, data, otherData);
+      console.log("response33", otherData);
       // console.log(
       //   `${response.body.current.weather_descriptions[0]}. It is currently ${response.body.current.temperature} degress out. It feels like ${response.body.current.feelslike} degress out`
       // );
